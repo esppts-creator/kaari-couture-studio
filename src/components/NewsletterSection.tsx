@@ -1,13 +1,20 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import woolTexture from "@/assets/wool-texture-bg.jpg";
 
 const NewsletterSection = () => {
   const [email, setEmail] = useState("");
 
   return (
-    <section className="py-24 md:py-32 bg-secondary/50">
-      <div className="container mx-auto px-6">
+    <section className="relative py-24 md:py-32 overflow-hidden">
+      {/* Wool texture background */}
+      <div className="absolute inset-0">
+        <img src={woolTexture} alt="" className="w-full h-full object-cover opacity-20" />
+        <div className="absolute inset-0 bg-secondary/80" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
