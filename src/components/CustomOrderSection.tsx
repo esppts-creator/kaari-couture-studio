@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import woolTexture from "@/assets/wool-texture-bg.jpg";
 
 const CustomOrderSection = () => {
   const [formData, setFormData] = useState({ name: "", email: "", description: "" });
@@ -11,7 +12,13 @@ const CustomOrderSection = () => {
   };
 
   return (
-    <section id="custom-crochet" className="py-24 md:py-32 bg-primary">
+    <section id="custom-crochet" className="relative py-24 md:py-32 overflow-hidden">
+      {/* Wool texture background */}
+      <div className="absolute inset-0">
+        <img src={woolTexture} alt="" className="w-full h-full object-cover" />
+        <div className="absolute inset-0 bg-primary/80" />
+      </div>
+      <div className="relative z-10">
       <div className="container mx-auto px-6">
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Content */}
@@ -68,6 +75,7 @@ const CustomOrderSection = () => {
             </Button>
           </motion.form>
         </div>
+      </div>
       </div>
     </section>
   );
