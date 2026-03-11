@@ -3,8 +3,57 @@ import { Button } from "@/components/ui/button";
 import woolTexture from "@/assets/wool-texture-bg.jpg";
 import kaariLogo from "@/assets/kaari-logo.png";
 import kaariBrandName from "@/assets/kaari-brand-name.png";
+import { useMemo } from "react";
+
+const YarnFiber = ({ index }: { index: number }) => {
+  const props = useMemo(() => {
+    const left = Math.random() * 100;
+    const duration = 12 + Math.random() * 18;
+    const delay = Math.random() * -20;
+    const width = 1 + Math.random() * 2;
+    const height = 40 + Math.random() * 80;
+    const rotation = Math.random() * 360;
+    const opacity = 0.15 + Math.random() * 0.25;
+    const drift = -30 + Math.random() * 60;
+    return { left, duration, delay, width, height, rotation, opacity, drift };
+  }, [index]);
+
+  return (
+    <motion.div
+      className="absolute rounded-full"
+      style={{
+        left: `${props.left}%`,
+        width: `${props.width}px`,
+        height: `${props.height}px`,
+        background: `linear-gradient(180deg, transparent, hsl(var(--kaari-cream) / ${props.opacity}), transparent)`,
+        filter: "blur(0.5px)",
+        rotate: `${props.rotation}deg`,
+      }}
+      initial={{ y: "110vh", x: 0, opacity: 0 }}
+      animate={{
+        y: "-10vh",
+        x: [0, props.drift, -props.drift / 2, 0],
+        opacity: [0, props.opacity, props.opacity, 0],
+      }}
+      transition={{
+        duration: props.duration,
+        delay: props.delay,
+        repeat: Infinity,
+        ease: "linear",
+        x: {
+          duration: props.duration,
+          delay: props.delay,
+          repeat: Infinity,
+          ease: "easeInOut",
+        },
+      }}
+    />
+  );
+};
 
 const HeroSection = () => {
+  const fibers = useMemo(() => Array.from({ length: 25 }, (_, i) => i), []);
+
   return (
     <section id="home" className="relative h-screen flex items-center justify-center overflow-hidden">
       {/* Wool texture background */}
@@ -15,6 +64,13 @@ const HeroSection = () => {
           className="w-full h-full object-cover animate-slow-zoom"
         />
         <div className="absolute inset-0 bg-gradient-to-b from-kaari-dark/30 via-transparent to-kaari-dark/50" />
+      </div>
+
+      {/* Floating yarn fibers */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {fibers.map((i) => (
+          <YarnFiber key={i} index={i} />
+        ))}
       </div>
 
       {/* Content */}
