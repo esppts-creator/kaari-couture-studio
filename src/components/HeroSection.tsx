@@ -2,6 +2,7 @@ import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import woolTexture from "@/assets/wool-texture-bg.jpg";
 import kaariLogo from "@/assets/kaari-logo.png";
+import kaariBrandName from "@/assets/kaari-brand-name.png";
 
 const HeroSection = () => {
   return (
@@ -13,7 +14,7 @@ const HeroSection = () => {
           alt="Wool texture background"
           className="w-full h-full object-cover animate-slow-zoom"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-kaari-dark/40 via-transparent to-kaari-dark/60" />
+        <div className="absolute inset-0 bg-gradient-to-b from-kaari-dark/30 via-transparent to-kaari-dark/50" />
       </div>
 
       {/* Content */}
@@ -31,46 +32,32 @@ const HeroSection = () => {
           />
         </motion.div>
 
-        <motion.p
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="font-accent text-sm md:text-base tracking-[0.4em] uppercase text-kaari-gold mb-4"
+          transition={{ duration: 0.8, delay: 0.5 }}
+          className="mb-4"
         >
-          Unique Handmade Crochet Collection
-        </motion.p>
-
-        <motion.h2
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="font-heading text-5xl md:text-7xl lg:text-8xl font-bold text-kaari-cream mb-2 leading-tight"
-        >
-          Kaari
-        </motion.h2>
+          <img
+            src={kaariBrandName}
+            alt="कारी - Kaari Handmade"
+            className="h-32 md:h-48 lg:h-56 mx-auto object-contain"
+          />
+        </motion.div>
 
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="font-accent text-xl md:text-2xl tracking-[0.2em] uppercase text-kaari-cream/70 mb-6"
+          className="font-accent text-sm md:text-base tracking-[0.4em] uppercase text-kaari-gold mb-8"
         >
-          Handmade
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.8 }}
-          className="font-accent text-lg md:text-2xl italic text-kaari-gold/90 mb-10"
-        >
-          प्यार से बुनी गई ख़ास डिज़ाइन्स
+          Unique Handmade Crochet Collection
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 1 }}
+          transition={{ duration: 0.8, delay: 0.9 }}
           className="flex flex-col sm:flex-row gap-4 justify-center"
         >
           <Button variant="hero" size="lg">

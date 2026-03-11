@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Star } from "lucide-react";
+import woolTexture from "@/assets/wool-texture-bg.jpg";
 
 const testimonials = [
   {
@@ -21,8 +22,14 @@ const testimonials = [
 
 const TestimonialsSection = () => {
   return (
-    <section className="py-24 md:py-32 bg-secondary/30">
-      <div className="container mx-auto px-6">
+    <section className="relative py-24 md:py-32 overflow-hidden">
+      {/* Wool texture background */}
+      <div className="absolute inset-0">
+        <img src={woolTexture} alt="" className="w-full h-full object-cover opacity-8" />
+        <div className="absolute inset-0 bg-secondary/40" />
+      </div>
+
+      <div className="relative z-10 container mx-auto px-6">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -46,7 +53,7 @@ const TestimonialsSection = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.15 }}
-              className="bg-background p-8 shadow-card hover:shadow-card-hover transition-shadow duration-500"
+              className="bg-background/80 backdrop-blur-sm p-8 shadow-card hover:shadow-card-hover transition-shadow duration-500"
             >
               <div className="flex gap-1 mb-6">
                 {[...Array(5)].map((_, j) => (

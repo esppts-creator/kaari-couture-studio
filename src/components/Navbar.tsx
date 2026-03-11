@@ -28,7 +28,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="lg:hidden text-foreground"
+            className={`lg:hidden transition-colors ${scrolled ? "text-foreground" : "text-kaari-cream"}`}
           >
             {menuOpen ? <X size={24} /> : <Menu size={24} />}
           </button>
@@ -36,7 +36,7 @@ const Navbar = () => {
             href="https://instagram.com/kaari.handmade"
             target="_blank"
             rel="noopener noreferrer"
-            className="hidden lg:block text-foreground hover:text-primary transition-colors"
+            className={`hidden lg:block transition-colors ${scrolled ? "text-foreground hover:text-primary" : "text-kaari-cream hover:text-kaari-gold"}`}
           >
             <Instagram size={20} />
           </a>
@@ -50,10 +50,10 @@ const Navbar = () => {
             className={`transition-all duration-500 ${scrolled ? "h-10" : "h-14"}`}
           />
           <div className="text-center">
-            <h1 className="font-heading text-2xl md:text-3xl font-semibold tracking-wide text-foreground">
-              Kaari
+            <h1 className={`font-heading text-2xl md:text-3xl font-semibold tracking-wide transition-colors ${scrolled ? "text-foreground" : "text-kaari-cream"}`}>
+              कारी
             </h1>
-            <p className="font-accent text-[10px] md:text-xs tracking-[0.3em] uppercase text-muted-foreground">
+            <p className={`font-accent text-[10px] md:text-xs tracking-[0.3em] uppercase transition-colors ${scrolled ? "text-muted-foreground" : "text-kaari-cream/70"}`}>
               Handmade
             </p>
           </div>
@@ -65,11 +65,11 @@ const Navbar = () => {
             href="https://instagram.com/kaari.handmade"
             target="_blank"
             rel="noopener noreferrer"
-            className="lg:hidden text-foreground hover:text-primary transition-colors"
+            className={`lg:hidden transition-colors ${scrolled ? "text-foreground hover:text-primary" : "text-kaari-cream hover:text-kaari-gold"}`}
           >
             <Instagram size={20} />
           </a>
-          <button className="text-foreground hover:text-primary transition-colors relative">
+          <button className={`transition-colors relative ${scrolled ? "text-foreground hover:text-primary" : "text-kaari-cream hover:text-kaari-gold"}`}>
             <ShoppingBag size={20} />
           </button>
         </div>
@@ -81,7 +81,7 @@ const Navbar = () => {
           <a
             key={item}
             href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
-            className="font-accent text-sm tracking-[0.15em] uppercase text-muted-foreground hover:text-primary transition-colors duration-300"
+            className={`font-accent text-sm tracking-[0.15em] uppercase transition-colors duration-300 ${scrolled ? "text-muted-foreground hover:text-primary" : "text-kaari-cream/80 hover:text-kaari-gold"}`}
           >
             {item}
           </a>
