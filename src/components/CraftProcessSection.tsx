@@ -29,10 +29,9 @@ const CraftProcessSection = () => {
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
         >
-          <p className="font-accent text-sm tracking-[0.3em] uppercase text-accent mb or-4">
+          <p className="font-accent text-sm tracking-[0.3em] uppercase text-accent mb-4">
             Our Process
-          </
-          p>
+          </p>
           <h2 className="font-heading text-3xl md:text-5xl font-semibold text-foreground">
             From Yarn To Art
           </h2>
