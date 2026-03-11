@@ -15,6 +15,9 @@ const buttonVariants = cva(
         secondary: "bg-secondary text-secondary-foreground hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        hero: "bg-primary text-primary-foreground hover:bg-primary/85 uppercase tracking-[0.2em] text-xs py-4 px-8 shadow-luxury hover:shadow-card-hover transition-all duration-300",
+        heroOutline: "border-2 border-kaari-cream text-kaari-cream hover:bg-kaari-cream/10 uppercase tracking-[0.2em] text-xs py-4 px-8 transition-all duration-300",
+        gold: "bg-kaari-gold text-foreground hover:bg-kaari-gold/90 uppercase tracking-[0.2em] text-xs shadow-card hover:shadow-card-hover transition-all duration-300",
       },
       size: {
         default: "h-10 px-4 py-2",
