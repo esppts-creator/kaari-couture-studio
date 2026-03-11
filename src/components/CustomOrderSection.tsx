@@ -76,6 +76,7 @@ const CustomOrderSection = () => {
           </motion.form>
         </div>
       </div>
+      </div>
     </section>
   );
 };
